@@ -1,4 +1,4 @@
-const TextInput = ({style, placeholder}) => {
+const TextInput = ({value, style, placeholder, onChange}) => {
     const inputStyle = {
         primary: "barraAddTarea"
     }
@@ -8,6 +8,8 @@ const TextInput = ({style, placeholder}) => {
             type="text"
             className={inputStyle[style]}
             placeholder={placeholder}
+            onChange={onChange}
+            value={value}
         />
     );
 }

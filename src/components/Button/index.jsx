@@ -1,4 +1,4 @@
-const Button = ({ variant = 'primary', onClick, children }) => {
+const Button = ({ variant, onClick, children }) => {
   const buttonStyles = {
     primary: 'botonAddTarea',
     danger: 'botonEliminar'

@@ -1,6 +1,10 @@
-const CheckboxInput = () => {
+const CheckboxInput = ({marca, tarea}) => {
     return (
-        <input type="checkbox"/>
+        <input 
+            type="checkbox"
+            checked={tarea.completada}
+            onChange={() => marca(tarea.id)}
+        />
     );
 }
 

@@ -1,13 +1,13 @@
 import CheckboxInput from "../CheckboxInput"
 import Button from "../Button"
 
-const ItemTarea = ({tarea}) => {
+const ItemTarea = ({tarea, onEliminar, onCompletar}) => {
     return (
-        <tr>
-            <td><CheckboxInput/></td>
-            <td>{tarea}</td>
+        <tr style={{ textDecoration: tarea.completada ? 'line-through' : 'none' }}>
+            <td><CheckboxInput marca = {onCompletar} tarea = {tarea}/></td>
+            <td>{tarea.texto}</td>
             <td>
-              <Button variant="danger">Eliminar</Button>
+              <Button variant="danger" onClick={() => onEliminar(tarea.id)}>Eliminar</Button>
             </td>
           </tr>
     )

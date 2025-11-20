@@ -1,6 +1,6 @@
 import ItemTarea from "../ItemTarea"
 
-const TablaTareas = ({tareas}) => {
+const TablaTareas = ({tareas, onEliminar, onCompletar}) => {
     return (
         <table className="tabla">
         <thead>
@@ -11,9 +11,18 @@ const TablaTareas = ({tareas}) => {
           </tr>
         </thead>
         <tbody className="checkboxTarea">
-            {tareas.map((tarea, index) => (
-              <ItemTarea key={index} tarea={tarea} />
-            ))}
+          {tareas.length === 0 ? (
+            <tr>
+                <td colSpan="3" style={{ textAlign: 'center', padding: '1rem' }}>
+                  No hay tareas pendientes
+                </td>
+              </tr>
+          ) : (
+            tareas.map((tarea) => (
+              <ItemTarea tarea={tarea} onEliminar={onEliminar} onCompletar={onCompletar} />
+            ))
+          )}
+            
         </tbody>
       </table>
     )
